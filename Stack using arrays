@@ -5,7 +5,7 @@ public class Stackdemo
   public Stackdemo(int n)
   {
     arraysize=n;
-    stackarray[]=new int(n);
+    stackarray=new int[stackarray];
   }
   public boolean Isempty()
   {
@@ -65,7 +65,7 @@ public class Stackdemo
               case 2:stk.pop();
                       break;
               case 3:stk.display();
-                      beak;
+                      break;
               default:System.out.println("wrong input");
                         break;
             }
