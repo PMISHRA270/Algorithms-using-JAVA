@@ -1,0 +1,64 @@
+import java.io.*;
+import java.util.*;
+class Staff
+{
+    String staffid;
+    String name;
+    String phone;
+    String salary;
+}
+class Teaching extends Staff
+{
+    String domain;
+    String publications;
+}
+class Technical extends Staff
+{
+    String skills;
+}
+class Contract extends Staff
+{
+    String period;
+}
+
+public class Staffdetails
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        Staff s=new Staff();
+        Teaching t=new Teaching();
+        Technical te=new Technical();
+        Contract c=new Contract();
+        System.out.println("enter the no.of staff");
+        int n=sc.nextInt();
+        for(int i=0;i<n;i++)
+        {
+            System.out.println("enter staff id");
+            s.staffid=sc.next();
+            System.out.println("enter staff name");
+            s.name=sc.next();
+            System.out.println("enter staff phone");
+            s.phone=sc.next();
+            System.out.println("enter staff salary");
+            s.salary=sc.next();
+            System.out.println("enter domain");
+            t.domain=sc.next();
+            System.out.println("enter publication");
+            t.publications=sc.next();
+            System.out.println("enter skills");
+            te.skills=sc.next();
+            System.out.println("enter period");
+            c.period=sc.next();
+            System.out.println("Staff id:"+s.staffid);
+            System.out.println("Staff name:"+s.name);
+            System.out.println("Staff phone:"+s.phone);
+            System.out.println("Staff salary:"+s.salary);
+            System.out.println("Staff domain:"+t.domain);
+            System.out.println("Staff publications:"+t.publications);
+            System.out.println("Staff skills:"+te.skills);
+            System.out.println("Staff period:"+c.period);
+        }
+    }
+}
+        
