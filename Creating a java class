@@ -1,0 +1,30 @@
+import java.util.Scanner;
+public class Student
+{
+  public Student(String stuUsn,String stuName,String stuBranch,String stuPhone)
+  {
+    System.out.println("Student USN is: "+stuUsn);
+    System.out.println("Student name is: "+stuName);
+    System.out.println("Student branch is: "+stuBranch);
+    System.out.println("Student Phone no. is: "+stuPhone);
+  }
+  public static void main(String[] args)
+  {
+    Scanner s=new Scanner(System.in);
+    System.out.println("enter the no. of students");
+    int n=s.nextInt();
+    for(int i=1;i<=n;i++)
+    {
+      System.out.println("enter student usn");
+      String usn=s.next();
+      System.out.println("enter student name");
+      String name=s.next();
+      System.out.println("enter student branch");
+      String branch=s.next();
+      System.out.println("enter student phone no.");
+      String phno=s.next();
+      new Student(usn,name,branch,phno);
+    }
+  }
+}
+      
