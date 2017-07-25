@@ -39,7 +39,7 @@ public class Stackdemo
       System.out.println("Stack is empty");
       return;
     }
-    for(int i=top;i>=0;i++)
+    for(int i=top;i>=0;i--)
     {
       System.out.println(stackarray[i]+" ");
     }
