@@ -1,0 +1,80 @@
+import java.util.*;
+public class Stackdemo
+{
+  int stackarray[],arraysize,top;
+  public Stackdemo(int n)
+  {
+    arraysize=n;
+    stackarray[]=new int(n);
+  }
+  public boolean Isempty()
+  {
+    return top==-1;
+  }
+  public boolean Isfull()
+  {
+    return top==arraysize-1;
+  }
+  public void push(int i)
+  {
+    if(Isfull())
+      System.out.println("Stack is full");
+    else
+    {
+      stackarray[++top]=i;
+    }
+  }
+  public void pop()
+  {
+    if(Isempty())
+      System.out.println("Stack is empty");
+    else
+      System.out.println("the popped element is: "+stackarray[top--]);
+  }
+  public void display()
+  {
+    System.out.println("\nStack: ");
+    if(top==-1)
+    {
+      System.out.println("Stack is empty");
+      return;
+    }
+    for(int i=top;i>=0;i++)
+    {
+      System.out.println(stackarray[i]+" ");
+    }
+  }
+  public static void main(String[] args)
+  {
+    Scanner s=new Scanner(System.in);
+    int n=s.nextInt();
+    Stackdemo stk=new Stackdemo(n);
+    char ch;
+    do{
+        System.out.println("enter your choice");
+         System.out.println("1.Push");
+          System.out.println("2.Pop");
+           System.out.println("3.Display");
+           int choice=s.nextInt();
+           switch(choice)
+           {
+              case 1:System.out.println("Enter the element to be pushed");
+                      int element=s.nextInt();
+                      stk.push(element);
+                      break;
+              case 2:stk.pop();
+                      break;
+              case 3:stk.display();
+                      beak;
+              default:System.out.println("wrong input");
+                        break;
+            }
+            System.out.println("Do you want to continue (type Y or N)?");
+            ch=s.next().charAt(0);
+          }while(ch=='y'||ch=='Y');
+      }
+}
+            
+        
+    
+    
