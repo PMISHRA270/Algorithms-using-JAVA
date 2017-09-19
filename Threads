@@ -1,0 +1,74 @@
+import java.util.*;
+class Even implements Runnable
+{
+	public int x;
+	public Even(int x)
+	{
+		this.x=x;
+	}
+	public void run()
+	{
+		System.out.println("Thread name: Even thread and "+x+" is even Number & Square of "+x+" is : "+(x*x));
+	}
+	
+}
+class Odd implements Runnable
+{
+	public int x;
+	public Odd(int x)
+	{
+		this.x=x;
+	}
+	public void run()
+	{
+		System.out.println("Thread name: Odd thread and "+x+" is odd number & Cube of "+x+" is : "+(x*x*x));
+	}
+}	
+
+class A extends Thread
+{
+	public String tname;
+	public Random r;
+	public Thread t1,t2;
+	public A(String s)
+	{
+		tname=s;
+	}
+	public void run()
+	{
+		int num=0;
+		r=new Random();
+		try
+		{
+			for(int i=0;i<50;i++)
+			{
+				num=r.nextInt(100);
+				System.out.println("Main thread and generated number is :"+num);
+				if(num%2==0)
+				{
+					t1=new Thread(new Even(num));
+					t1.start();
+				}
+				
+				else
+				{
+					t2=new Thread(new Odd(num));
+					t2.start();
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			System.out.println(ex.getMessage());
+		}
+	}
+
+}	
+public class MultiThread 
+{
+	public static void main(String []args)
+	{
+		A a=new A("one");
+		a.start();
+	}
+}
