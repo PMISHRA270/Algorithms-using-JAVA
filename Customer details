@@ -1,0 +1,35 @@
+import java.util.Scanner;
+import java.util.StringTokenizer; 
+class Customer
+{
+	String temp;
+	int dd;
+	int mm;
+	int yyyy;
+	public void Custdetail(String name,String date)
+	{
+		StringTokenizer token=new StringTokenizer(date,",/");
+		temp=token.nextToken();
+		dd=Integer.parseInt(temp);
+		temp=token.nextToken();
+		mm=Integer.parseInt(temp);
+		temp=token.nextToken();
+		yyyy=Integer.parseInt(temp);
+		System.out.println(name+","+dd+","+mm+","+yyyy);
+	}
+
+}
+public class Customerdetails
+{
+	public static void main(String[] args)
+	{
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the name :");
+		String name=s.next();
+		System.out.println("Enter dob in dd/mm/yyyy format :");
+		String date=s.next();
+		Customer c=new Customer();
+		c.Custdetail(name,date);
+		s.close();
+	}
+}
