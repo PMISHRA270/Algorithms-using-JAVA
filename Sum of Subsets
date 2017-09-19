@@ -1,0 +1,52 @@
+import java.util.*;
+class SumofSubsets
+{
+      static int w[],x[],i,j,s=0,k=1,r=0,m,n;
+      void read()
+      {
+          Scanner sc=new Scanner(System.in);
+          System.out.println("Enter the number of values :");
+          n=sc.nextInt();
+          w=new int[n+1];
+          x=new int[n+1];
+         System.out.println("Enter the corresponding weights :");
+         for(i=1;i<=n;i++)
+         {
+              System.out.println("Enter the weight :");
+              w[i]=sc.nextInt();
+              r+=w[i];
+              x[i]=0;
+         }
+         System.out.println("Enter the total sum :");
+         m=sc.nextInt();
+         sc.close();
+     }
+     void sumofsubset(int s,int k,int r)
+     {
+         if(s+w[k]==m)
+        {
+            x[k]=1;
+            System.out.println("Possible solutions are :");
+            for(i=1;i<=n;i++)
+                System.out.println(" "+x[i]);
+            System.out.println();
+         }
+         else if(s+w[k]+w[k+1]<=m)
+         {
+             x[k]=1;
+             sumofsubset(s+w[k],k+1,r-w[k]);
+         }
+         if ((s+r-w[k]>=m)&&(s+w[k+1]<=m))
+         {
+             x[k]=0;
+             sumofsubset(s,k+1,r-w[k]);
+         }
+         x[k]=0;
+   }
+   public static void main(String args[])
+   {
+       SumofSubsets ss=new SumofSubsets();
+       ss.read();
+       ss.sumofsubset(s,k,r);
+   }
+}
