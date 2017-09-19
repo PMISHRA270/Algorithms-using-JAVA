@@ -1,0 +1,54 @@
+import java.util.Random;
+public class Quicksort
+{
+	private int array[];
+	public void sort(int[] inputarr)
+	{
+		this.array=inputarr;
+		quicksort(0,inputarr.length-1);
+	}
+	public void quicksort(int low,int high)
+	{
+		int i=low;
+		int j=high;
+		int pivot=array[low+(high-low)/2];
+		while(i<=j)
+		{
+			while(array[i]<pivot)
+				i++;
+			while(array[j]>pivot)
+				j--;
+			if(i<=j)
+			{
+				exchange(i,j);
+				i++;
+				j--;
+			}
+			if(low<j)
+				quicksort(low,j);
+			if(i<high)
+				quicksort(i,high);
+		}
+	}
+	private void exchange(int i,int j)
+	{
+		int temp=array[i];
+		array[i]=array[j];
+		array[j]=temp;
+	}
+	public static void main(String[] args) 
+	{
+		Quicksort Sorter=new Quicksort();
+		int[] input =new int[5000];
+		Random rand=new Random();
+		for(int j=0;j<5000;j++)
+			input[j]=rand.nextInt();
+		long start_time=System.nanoTime();
+		Sorter.sort(input);
+		long end_time=System.nanoTime();
+		for(int i:input)
+			System.out.println(i);
+		long t=end_time-start_time;
+		System.out.println("Time taken for executon is : "+t+" nano seconds.");
+		}
+	}
