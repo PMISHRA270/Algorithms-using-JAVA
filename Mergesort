@@ -1,0 +1,50 @@
+import java.util.Random;
+
+public class Mergesort {
+	public void sort(int a[],int low ,int high)
+	{
+		int n=high-low;
+		if(n<=1)
+			return;
+		int mid=low+(n/2);
+		sort(a,low,mid);
+		sort(a,mid,high);
+		int temp[]=new int[n];
+		int i,j;
+		i=low;
+		j=mid;
+		int k;
+		for(k=0;k<n;k++)
+		{
+			if(i==mid)
+				temp[k]=a[j++];
+			else if(j==high)
+				temp[k]=a[i++];
+			else if(a[j]<a[i])
+				temp[k]=a[j++];
+			else 
+				temp[k]=a[i++];
+		}
+		for(k=0;k<n;k++)
+			a[low+k]=temp[k];
+			
+		
+	}
+	public static void main(String[] args)
+	{
+		Random r=new Random();
+		int arr[]=new int[5000];
+		for(int q=0;q<5000;q++)
+			arr[q]=r.nextInt();
+		Mergesort M=new Mergesort();
+		long st=System.nanoTime();
+		M.sort(arr,0,5000);
+		long et=System.nanoTime();
+		long t=et-st;
+		System.out.println("Sorted array :");
+				for(int m:arr)
+					System.out.println(m);
+		System.out.println("Time taken for execution is : "+t+" nano seconds.");													
+	}
+
+}
